@@ -13,7 +13,7 @@ func (b *Bot) onMessage(s *dg.Session, m *dg.MessageCreate) {
 	// If the message is "ping" reply with "Pong!"
 	if m.ChannelID != b.config.ChannelID {
 		if m.Content == "Ping" {
-			s.ChannelMessageSend(b.config.ChannelID, "Pong!")
+			b.ping(m)
 		}
 	}
 }
