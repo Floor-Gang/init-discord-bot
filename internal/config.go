@@ -19,7 +19,7 @@ type Config struct {
 func GetConfig(configPath string) Config {
 	config := Config{
 		Token:     "",
-		Prefix:    ".mention",
+		Prefix:    "",
 		ChannelID: "",
 		LeadDevID: "",
 		Location:  configPath,
