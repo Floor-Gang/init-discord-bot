@@ -11,8 +11,7 @@ func (b *Bot) checkChannel(commandMessage *dg.Message) bool {
 }
 
 func (b *Bot) checkRoles(member *dg.Member) bool {
-	return internal.StringInSlice(b.config.LeadDevID, member.Roles) ||
-		internal.StringInSlice(b.config.AdminID, member.Roles)
+	return internal.StringInSlice(b.config.LeadDevID, member.Roles)
 }
 
 func checkAction(action string) bool {

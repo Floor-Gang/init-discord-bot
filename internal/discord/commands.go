@@ -19,7 +19,12 @@ func (bot *Bot) ping(msg *dg.MessageCreate) {
 		)
 		return
 	}
-
+	if !bot.checkRoles(member) {
+		_, _ = bututil.Reply(bot.session, msg.Message,
+			"You are not allowed to use this command",
+		)
+		return
+	}
 	if _, err := bututil.Reply(bot.session, msg.Message, "Pong"); err != nil {
 		util.Report("Bot failed to reply to ping command.", err)
 	}

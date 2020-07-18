@@ -12,7 +12,6 @@ type Config struct {
 	Prefix    string `yaml:"prefix"`
 	ChannelID string `yaml:"channel"`
 	LeadDevID string `yaml:"leadev"`
-	AdminID   string `yaml:"admin"`
 	Location  string `yaml:"location"`
 }
 
@@ -23,7 +22,6 @@ func GetConfig(configPath string) Config {
 		Prefix:    ".mention",
 		ChannelID: "",
 		LeadDevID: "",
-		AdminID:   "",
 		Location:  configPath,
 	}
 	err := utilConfig.GetConfig(configPath, &config)
