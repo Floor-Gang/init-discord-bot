@@ -61,8 +61,8 @@ func Start() {
 		Config: &config,
 	}
 
-	client.AddHandler(bot.onReady)
-	client.AddHandler(bot.onMessage)
+	client.AddHandlerOnce(bot.onReady) // This will call onReady only once
+	client.AddHandler(bot.onMessage)   // This will catch all the new messages that the bot can see
 
 	if err = client.Open(); err != nil {
 		util.Report("Was an authentication token provided?", err)
