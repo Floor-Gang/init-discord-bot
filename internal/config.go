@@ -1,22 +1,28 @@
 package internal
 
 import (
-	utilConfig "github.com/Floor-Gang/utilpkg/config"
 	"log"
+
+	utilConfig "github.com/Floor-Gang/utilpkg/config"
 )
 
 // Config structure.
 type Config struct {
-	Auth   string `yaml:"auth_server"`
-	Prefix string `yaml:"prefix"`
+	Token     string `yaml:"token"`
+	Prefix    string `yaml:"prefix"`
+	ChannelID string `yaml:"channel"`
+	LeadDevID string `yaml:"leadev"`
+	Location  string `yaml:"location"`
 }
 
-const configPath = "./config.yml"
-
 // GetConfig retrieves a configuration.
-func GetConfig() Config {
+func GetConfig(configPath string) Config {
 	config := Config{
-		Prefix: ".<command name>",
+		Token:     "",
+		Prefix:    "",
+		ChannelID: "",
+		LeadDevID: "",
+		Location:  configPath,
 	}
 	err := utilConfig.GetConfig(configPath, &config)
 
@@ -29,7 +35,7 @@ func GetConfig() Config {
 
 // Save saves configuration
 func (config *Config) Save() {
-	if err := utilConfig.Save(configPath, config); err != nil {
+	if err := utilConfig.Save(config.Location, config); err != nil {
 		log.Println("Failed to save config", err)
 	}
 }
