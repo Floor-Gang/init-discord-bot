@@ -1,4 +1,4 @@
-package discord
+package internal
 
 import (
 	util "github.com/Floor-Gang/utilpkg/botutil"

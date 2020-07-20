@@ -1,8 +1,7 @@
-package discord
+package internal
 
 import (
 	auth "github.com/Floor-Gang/authclient"
-	"github.com/Floor-Gang/init-discord-bot/internal"
 	util "github.com/Floor-Gang/utilpkg"
 	dg "github.com/bwmarrin/discordgo"
 	"log"
@@ -12,7 +11,7 @@ import (
 type Bot struct {
 	Auth   *auth.AuthClient
 	Client *dg.Session
-	Config *internal.Config
+	Config *Config
 }
 
 // Start starts discord client, configuration and database
@@ -20,7 +19,7 @@ func Start() {
 	var err error
 
 	// get Config.yml
-	config := internal.GetConfig()
+	config := GetConfig()
 
 	// setup authentication server
 	// you can use this to get the bot's access token
