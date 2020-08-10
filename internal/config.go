@@ -1,21 +1,23 @@
 package internal
 
 import (
-	utilConfig "github.com/Floor-Gang/utilpkg/config"
 	"log"
+
+	utilConfig "github.com/Floor-Gang/utilpkg/config"
 )
 
 // Config structure.
 type Config struct {
-	Auth   string `yaml:"auth_server"`
+	Token  string `yaml:"token"`
 	Prefix string `yaml:"prefix"`
 }
 
 const configPath = "./config.yml"
 
 // GetConfig retrieves a configuration.
-func GetConfig() Config {
+func getConfig() Config {
 	config := Config{
+		Token:  "",
 		Prefix: ".<command name>",
 	}
 	err := utilConfig.GetConfig(configPath, &config)

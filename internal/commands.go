@@ -9,7 +9,3 @@ import (
 func (bot *Bot) cmdPing(msg *dg.Message) {
 	util.Reply(bot.Client, msg, "Pong!")
 }
-
-func (bot *Bot) cmdSomethingAdmin(msg *dg.Message) {
-	util.Reply(bot.Client, msg, "Some admin command")
-}
